@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 
 declare const MAIN_WINDOW_WEBPACK_ENTRY: string
 declare const MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY: string
@@ -21,10 +21,13 @@ const createWindow = (): void => {
 
   mainWindow.loadURL(MAIN_WINDOW_WEBPACK_ENTRY)
 
-  //mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  createWindow()
+  handleIcpRequests()
+})
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
@@ -37,4 +40,26 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+const handleIcpRequests = () => {
+  ipcMain.handle('close', () => {
+    app.quit()
+  })
+
+  ipcMain.handle('minimize', () => {
+    if (BrowserWindow.getFocusedWindow()?.isMinimized()) {
+      BrowserWindow.getFocusedWindow()?.restore()
+    } else {
+      BrowserWindow.getFocusedWindow()?.minimize()
+    }
+  })
+
+  ipcMain.handle('maximize', () => {
+    if (BrowserWindow.getFocusedWindow()?.isMaximized()) {
+      BrowserWindow.getFocusedWindow()?.unmaximize()
+    } else {
+      BrowserWindow.getFocusedWindow()?.maximize()
+    }
+  })
+}
 
