@@ -1,6 +1,9 @@
+import { useTheme } from '../../context/useTheme'
 import '../../config/styles/top-actions-menu.css'
 
 const TopActionsMenu = () => {
+  const { theme } = useTheme()
+
   const minimize = () => {
     (window as any).api.minimize()
   }
@@ -14,10 +17,10 @@ const TopActionsMenu = () => {
   }
 
   return (
-    <div className="top-actions-menu flex">
-      <button className="minimize-button" onClick={minimize}>-</button>
-      <button className="maximize-button" onClick={maximize}>+</button>
-      <button className="close-button" onClick={close}>x</button>
+    <div className={`top-actions-menu flex ${theme}`}>
+      <button className="minimize-btn" onClick={minimize}>-</button>
+      <button className="maximize-btn" onClick={maximize}>+</button>
+      <button className="close-btn" onClick={close}>x</button>
     </div>
   )
 }

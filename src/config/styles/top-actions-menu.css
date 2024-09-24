@@ -1,5 +1,5 @@
 .top-actions-menu {
-  background-color: var(--color-success);
+  background-color: var(--color-primary);
   align-items: center;
   justify-content: flex-end;
 }

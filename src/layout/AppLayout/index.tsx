@@ -1,3 +1,4 @@
+import { useTheme } from '../../context/useTheme'
 import TopActionsMenu from '../../components/TopActionsMenu'
 
 type AppLayoutPropsType = {
@@ -5,12 +6,13 @@ type AppLayoutPropsType = {
 }
 
 const AppLayout = ({ children }: AppLayoutPropsType) => {
+  const { theme } = useTheme()
   return (
-    <>
+    <div className={`${theme}`}>
       <TopActionsMenu />
       <div>AppLayout</div>
       {children}
-    </>
+    </div>
   )
 }
 

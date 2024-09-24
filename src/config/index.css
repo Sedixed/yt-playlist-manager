@@ -1,16 +1,21 @@
 body {
   margin: 0;
   
-  /* Variables (revoir primary et secondary) */
-  --color-primary: #007bff;
-  --color-secondary: #6c757d;
+  /* Variables */
   --color-success: #28a745;
   --color-danger: #dc3545;
   --color-warning: #ffc107;
   --color-info: #17a2b8;
-  --color-light: #f8f9fa;
-  --color-dark: #343a40;
-  --color-white: #fff;
+}
+
+.dark {
+  --color-primary: #343a40;
+  --color-secondary: #6c757d;
+}
+
+.light {
+  --color-primary: #f8f9fa;
+  --color-secondary: #6c757d;
 }
 
 .flex {
