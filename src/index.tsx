@@ -5,6 +5,8 @@ import AppLayout from './layout/AppLayout'
 import AppRoutes from './config/routes'
 import { BrowserRouter } from 'react-router-dom'
 
+import './config/index.css'
+
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

@@ -1,0 +1,16 @@
+.top-actions-menu {
+  background-color: var(--color-success);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.top-actions-menu button {
+  background-color: transparent;
+  text-align: center;
+  background-color: blue;
+  border: none;
+  color: var(--color-white);
+  font-size: 1.2rem;
+  cursor: pointer;
+  outline: none;
+}
