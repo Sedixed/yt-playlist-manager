@@ -11,7 +11,7 @@ if (require('electron-squirrel-startup')) {
 const createWindow = (): void => {
   const mainWindow = new BrowserWindow({
     height: 600,
-    width: 800,
+    width: 1000,
     webPreferences: {
       preload: MAIN_WINDOW_PRELOAD_WEBPACK_ENTRY,
     },
@@ -48,8 +48,10 @@ const handleIcpRequests = () => {
 
   ipcMain.handle('minimize', () => {
     if (BrowserWindow.getFocusedWindow()?.isMinimized()) {
+      console.log("on restore")
       BrowserWindow.getFocusedWindow()?.restore()
     } else {
+      console.log("on minimize")
       BrowserWindow.getFocusedWindow()?.minimize()
     }
   })

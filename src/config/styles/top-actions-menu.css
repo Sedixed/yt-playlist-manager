@@ -2,15 +2,17 @@
   background-color: var(--color-primary);
   align-items: center;
   justify-content: flex-end;
+  -webkit-app-region: drag;
 }
 
 .top-actions-menu button {
-  background-color: transparent;
   text-align: center;
   background-color: blue;
   border: none;
-  color: var(--color-white);
+  color: var(--color-primary);
   font-size: 1.2rem;
   cursor: pointer;
   outline: none;
+  -webkit-app-region: none;
 }
+
